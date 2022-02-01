@@ -12,8 +12,9 @@ class Tag(models.Model):
         return f"{self.name}"
 
 class Category(models.Model):
-    name = models.CharField("Kategoriya nomi",max_length=100,)
+    name = models.CharField("Kategoriya nomi",max_length=100)
     slug = models.SlugField("*",max_length=100, unique=True)
+    image_of_category = models.ImageField(upload_to='category_images/')
 
     def get_absolute_url(self):
         return reverse("blog:category_detail",kwargs={"category_slug":self.slug})

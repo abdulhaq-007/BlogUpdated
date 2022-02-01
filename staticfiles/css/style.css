@@ -226,7 +226,7 @@ body a:hover{
 	min-height:300px;
 }
 .banner-info {
-    background: url(../images/dott.png)repeat 0px 0px;
+    background: url(../static/images/dott.png)repeat 0px 0px;
     background-size: 4px;
     -webkit-background-size: 4px;
     -moz-background-size: 4px;
@@ -236,7 +236,7 @@ body a:hover{
     padding: 2em 0;
 }
 .banner-info1 {
-    background: url(../images/dott.png)repeat 0px 0px;
+    background: url(../static/images/dott.png)repeat 0px 0px;
     background-size: 4px;
     -webkit-background-size: 4px;
     -moz-background-size: 4px;

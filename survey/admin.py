@@ -9,6 +9,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id','name']
+    list_display_links = ['name']
     prepopulated_fields = {"slug":("name",)}
 
 @admin.register(Post)

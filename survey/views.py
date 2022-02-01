@@ -84,3 +84,22 @@ def post(self, request):
 
 def homeView(request):
 	return render(request, 'index.html')
+
+def categoryDetail(request, slug):
+    category = Category.objects.get(slug=slug)
+    post = Post.objects.filter(category=category)
+    print(post)
+    context = {"objects": post}
+    return render(request, "categories.html", context)
+
+def postDetail(request, post_slug):
+    if request.method == "POST":
+        form = CommentForm(request.form)
+        if form.is_valid():
+            form.save()
+    else:
+        form = CommentForm()
+        print("NONONO")
+    post = Post.objects.get(slug=post_slug)
+    context = {"object":post, "form":form}
+    return render(request, "detail.html",context)    

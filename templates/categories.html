@@ -1,0 +1,44 @@
+{% extends 'survey/base.html' %}
+{% load static %}
+{% block content %}
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+          {{ objects.name}} Posts
+      </h1>
+    <div class="columns">
+        {% for post in objects %}
+            <div class="column is-one-third">
+                <div class="card">
+                      <div class="card-image">
+                          <a href="{{ post.get_absolute_url }}">
+                            <figure class="image is-4by3">
+                              <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            </figure>
+                          </a>
+                      </div>
+                      <div class="card-content">
+                        <div class="content">
+                           <a href="{{ post.get_absolute_url }}"><p class="title">{{ post.title }}</p></a>
+                            {{ post.description | truncatewords:"10"}} <a>@bulmaio</a>.
+                          <a href="#">#css</a> <a href="#">#responsive</a>
+                          <br>
+                          <time>{{ post.published}}</time>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+         {% endfor %}
+
+    </div>
+    </div>
+  <div class="container has-text-centered">
+      <h1 class="is-size-2">Tags</h1>
+      <div class="tags has-text-centered" id="tags">
+      </div>
+  </div>
+
+  </section>
+
+  {% endblock %}
